@@ -1,0 +1,67 @@
+{
+  "ethics_notes": "ETHICAL & PRIVACY SAFEGUARDS APPLIED IN THIS PROJECT:\n1. De-identified data only: the dataset carries no patient names, addresses,\n   or identifiers of any kind (fully anonymized public research dataset).\n2. Local processing: all analysis runs locally/in-session; no patient record\n   is transmitted to a third party or external API.\n3. Aggregate reporting: all reported outputs (metrics, plots) describe group-\n   level model performance, never a single traceable patient's record.\n4. Bias awareness: the dataset represents a specific population (Pima Indian\n   heritage, female patients, age 21+), which limits generalizability. Any\n   real deployment would need re-validation on the target population and a\n   fairness audit across age, ethnicity, and other subgroups before clinical use.\n5. No autonomous clinical action: this model is a decision-support / screening\n   aid only. It must never replace a licensed clinician's diagnosis, and all\n   predictions should be reviewed by a qualified medical professional.\n6. Consent & governance: any real-world extension of this pipeline to hospital\n   data would require informed patient consent, IRB/ethics-committee approval,\n   and compliance with applicable health-data law (e.g., HIPAA in the US,\n   India's DPDP Act 2023 for health data, or GDPR in the EU).",
+  "dataset_shape_raw": [
+    768,
+    9
+  ],
+  "dataset_shape_clean": [
+    768,
+    9
+  ],
+  "missing_values_imputed": {
+    "Glucose": 5,
+    "BloodPressure": 35,
+    "SkinThickness": 227,
+    "Insulin": 374,
+    "BMI": 11
+  },
+  "duplicates_removed": 0,
+  "train_size": 614,
+  "test_size": 154,
+  "model_results": {
+    "Logistic Regression": {
+      "accuracy": 0.7078,
+      "precision": 0.6,
+      "recall": 0.5,
+      "f1_score": 0.5455,
+      "roc_auc": 0.813,
+      "cv_accuracy_mean": 0.7866,
+      "cv_accuracy_std": 0.0193
+    },
+    "Random Forest": {
+      "accuracy": 0.7338,
+      "precision": 0.6512,
+      "recall": 0.5185,
+      "f1_score": 0.5773,
+      "roc_auc": 0.8081,
+      "cv_accuracy_mean": 0.7769,
+      "cv_accuracy_std": 0.0204
+    },
+    "Support Vector Machine": {
+      "accuracy": 0.7403,
+      "precision": 0.6522,
+      "recall": 0.5556,
+      "f1_score": 0.6,
+      "roc_auc": 0.7964,
+      "cv_accuracy_mean": 0.7785,
+      "cv_accuracy_std": 0.0079
+    },
+    "XGBoost": {
+      "accuracy": 0.7662,
+      "precision": 0.68,
+      "recall": 0.6296,
+      "f1_score": 0.6538,
+      "roc_auc": 0.8244,
+      "cv_accuracy_mean": 0.7492,
+      "cv_accuracy_std": 0.0126
+    }
+  },
+  "best_model": "XGBoost",
+  "top_5_features_rf": {
+    "Glucose": 0.3377,
+    "BMI": 0.1644,
+    "Age": 0.1203,
+    "Insulin": 0.0999,
+    "DiabetesPedigreeFunction": 0.0957
+  }
+}
